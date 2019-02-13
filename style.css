@@ -1,0 +1,202 @@
+html {
+  font-size: 18px;
+  box-sizing: border-box;
+}
+
+html * {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: whitesmoke;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 1rem;
+  color: #242424;
+}
+
+h1 {
+  position: sticky;
+  top: 0;
+  z-index: 50000;
+  display: block;
+  margin: 0;
+  padding: 1rem 0.5rem;
+  background: whitesmoke;
+  font-size: 2rem;
+  color: rgba(0, 0, 0, 0.15);
+}
+
+section[class^="grid-"] {
+  width: 100%;
+}
+
+section[class^="grid-"] .grid-item {
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.15), inset 0.0625rem 0 0 rgba(0, 0, 0, 0.15), inset -0.0625rem 0 0 rgba(0, 0, 0, 0.15), inset 0 0.0625rem 0 rgba(0, 0, 0, 0.15), inset 0 -0.0625rem 0 rgba(0, 0, 0, 0.15);
+}
+
+section[class^="grid-"] .grid-item label {
+  display: block;
+  margin-top: 2rem;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+.grid-float {
+  display: block;
+}
+
+.grid-float:after {
+  content: "";
+  clear: both;
+  float: none;
+  display: table;
+}
+
+.grid-float .grid-item {
+  background: lightgoldenrodyellow;
+  display: block;
+  float: left;
+  margin: 0.5rem;
+  width: calc(25% - 1rem);
+  min-height: calc(33.33vh - 1rem);
+  transition: height ease 300ms;
+}
+
+.grid-float .grid-item[data-priority="true"] {
+  min-height: calc(66.66vh - 1rem);
+}
+
+.grid-inline {
+  display: block;
+  font-size: 0;
+}
+
+.grid-inline .grid-item {
+  background: lightcyan;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0.5rem;
+  width: calc(25% - 1rem);
+  min-height: calc(33.33vh - 1rem);
+  transition: height ease 300ms;
+}
+
+.grid-inline .grid-item[data-priority="true"] {
+  min-height: calc(66.66vh - 1rem);
+}
+
+
+.grid-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.grid-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 25% [col-start]);
+  grid-template-rows: repeat(3, auto [col-start]);
+}
+
+.grid-flex .grid-item {
+  background: lavender;
+  width: calc(25% - 1rem);
+  min-height: calc(33.33vh - 1rem);
+  margin: 0.5rem;
+  transition: width ease 300ms;
+  flex-grow: 1;
+}
+
+.grid-flex .grid-item[data-priority="true"] {
+  width: calc(50% - 1rem);
+}
+
+.grid-grid .grid-item {
+  background: mistyrose;
+  margin: 0.5rem;
+}
+
+.grid-grid .grid-item label {
+  display: block;
+  margin-top: auto;
+}
+
+.grid-grid .grid-item:nth-of-type(1)[data-priority="true"] {
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 2;
+}
+
+.grid-grid .grid-item:nth-of-type(2)[data-priority="true"] {
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 2;
+}
+
+.grid-grid .grid-item:nth-of-type(3)[data-priority="true"] {
+  grid-column: 3 / span 1;
+  grid-row: 1 / span 2;
+}
+
+.grid-grid .grid-item:nth-of-type(4)[data-priority="true"] {
+  grid-column: 4 / span 1;
+  grid-row: 1 / span 2;
+}
+
+.grid-grid .grid-item:nth-of-type(5)[data-priority="true"] {
+  grid-column: 1 / span 1;
+  grid-row: 2 / span 2;
+}
+
+.grid-grid .grid-item:nth-of-type(6)[data-priority="true"] {
+  grid-column: 2 / span 1;
+  grid-row: 2 / span 2;
+}
+
+.grid-grid .grid-item:nth-of-type(7)[data-priority="true"] {
+  grid-column: 3 / span 1;
+  grid-row: 2 / span 2;
+}
+
+.grid-grid .grid-item:nth-of-type(8)[data-priority="true"] {
+  grid-column: 4 / span 1;
+  grid-row: 2 / span 2;
+}
+
+.grid-grid .grid-item:nth-of-type(9)[data-priority="true"] {
+  grid-column: 1 / span 1;
+  grid-row: 3 / span 2;
+}
+
+.grid-grid .grid-item:nth-of-type(10)[data-priority="true"] {
+  grid-column: 2 / span 1;
+  grid-row: 3 / span 2;
+}
+
+.grid-masonry .grid-item {
+  background: aliceblue;
+  margin: 0.5rem;
+  width: calc(25% - 1rem);
+  min-height: calc(33.33vh - 1rem);
+}
+
+.grid-masonry .grid-item[data-priority="true"] {
+  min-height: calc(66.66vh - 1rem);
+}
+
+@media screen and (max-width: 40rem) {
+  section[class^="grid-"] .grid-item {
+    width: calc(100% - 1rem);
+    margin: 0.5rem;
+  }
+
+  .grid-grid {
+    display: block;
+  }
+}
